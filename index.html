@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form with All Input Types</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        input[type="radio"],
+        input[type="checkbox"] {
+            width: auto;
+            margin-right: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            margin-right: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            color: white;
+        }
+        .btn-secondary {
+            background-color: #6c757d;
+            color: white;
+        }
+        .btn-success {
+            background-color: #28a745;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Form with All Input Types</h1>
+    <form action="#" method="POST" enctype="multipart/form-data">
+        <!-- Text Inputs -->
+        <div class="form-group">
+            <label for="text">Text Input:</label>
+            <input type="text" id="text" name="text" placeholder="Enter text here">
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Enter password">
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter email">
+        </div>
+
+        <!-- Numeric Inputs -->
+        <div class="form-group">
+            <label for="number">Number:</label>
+            <input type="number" id="number" name="number" min="0" max="100">
+        </div>
+
+        <div class="form-group">
+            <label for="range">Range:</label>
+            <input type="range" id="range" name="range" min="0" max="100">
+        </div>
+
+        <!-- Date and Time Inputs -->
+        <div class="form-group">
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date">
+        </div>
+
+        <div class="form-group">
+            <label for="time">Time:</label>
+            <input type="time" id="time" name="time">
+        </div>
+
+        <div class="form-group">
+            <label for="datetime-local">DateTime:</label>
+            <input type="datetime-local" id="datetime-local" name="datetime-local">
+        </div>
+
+        <!-- Selection Inputs -->
+        <div class="form-group">
+            <label>Radio Buttons:</label>
+            <input type="radio" id="radio1" name="radio" value="option1">
+            <label for="radio1">Option 1</label>
+            <input type="radio" id="radio2" name="radio" value="option2">
+            <label for="radio2">Option 2</label>
+        </div>
+
+        <div class="form-group">
+            <label>Checkboxes:</label>
+            <input type="checkbox" id="check1" name="check1" value="check1">
+            <label for="check1">Check 1</label>
+            <input type="checkbox" id="check2" name="check2" value="check2">
+            <label for="check2">Check 2</label>
+        </div>
+
+        <div class="form-group">
+            <label for="select">Select Dropdown:</label>
+            <select id="select" name="select">
+                <option value="">Choose an option</option>
+                <option value="1">Option 1</option>
+                <option value="2">Option 2</option>
+                <option value="3">Option 3</option>
+            </select>
+        </div>
+
+        <!-- File and Color Inputs -->
+        <div class="form-group">
+            <label for="file">File Upload:</label>
+            <input type="file" id="file" name="file">
+        </div>
+
+        <div class="form-group">
+            <label for="color">Color Picker:</label>
+            <input type="color" id="color" name="color">
+        </div>
+
+        <!-- Text Area -->
+        <div class="form-group">
+            <label for="textarea">Text Area:</label>
+            <textarea id="textarea" name="textarea" rows="4" placeholder="Enter long text here"></textarea>
+        </div>
+
+        <!-- Hidden Input -->
+        <input type="hidden" name="hidden" value="hidden-value">
+
+        <!-- Buttons -->
+        <div class="form-group">
+            <button type="submit" class="btn-primary">Submit</button>
+            <button type="reset" class="btn-secondary">Reset</button>
+            <button type="button" class="btn-success">Regular Button</button>
+        </div>
+    </form>
+</body>
+</html>
