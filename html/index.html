@@ -54,9 +54,9 @@
     </style>
 </head>
 <body>
-    <h1>Form with All Input Types</h1>
+     <h1>Form with All Input Types</h1>
     <form action="#" method="POST" enctype="multipart/form-data">
-        <!-- Text Inputs -->
+         <!-- Text Inputs  -->
         <div class="form-group">
             <label for="text">Text Input:</label>
             <input type="text" id="text" name="text" placeholder="Enter text here">
@@ -116,7 +116,7 @@
             <label for="check2">Check 2</label>
         </div>
 
-        <div class="form-group">
+         <div class="form-group">
             <label for="select">Select Dropdown:</label>
             <select id="select" name="select">
                 <option value="">Choose an option</option>
@@ -135,7 +135,7 @@
         <div class="form-group">
             <label for="color">Color Picker:</label>
             <input type="color" id="color" name="color">
-        </div>
+        </div> 
 
         <!-- Text Area -->
         <div class="form-group">
@@ -152,6 +152,52 @@
             <button type="reset" class="btn-secondary">Reset</button>
             <button type="button" class="btn-success">Regular Button</button>
         </div>
+    <!-- </form> -->
+
+    <!-- Table Section -->
+    <h2>Sample Table</h2>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        tr:hover {
+            background-color: #f2f2f2;
+        }
+    </style>
+    <form action="">
+       <fieldset>
+        <legend>Registration Form</legend>
+        <table>
+       
+            <tbody>
+                <tr>
+                    <td>First Name</td>
+                    <td><input type="text" id="text" name="text" placeholder="Enter text here"></td>
+                    
+                </tr>
+                <tr>
+                    <td>Last Name</td>
+                    <td><input type="text" id="text" name="text" placeholder="Enter text here"></td>
+                   
+                </tr>
+               
+            </tbody>
+        </table>
+       </fieldset>
     </form>
 </body>
 </html>
