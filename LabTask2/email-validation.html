@@ -92,40 +92,83 @@
         function validateEmail() {
             const email = document.getElementById('email').value.trim();
             const errorDiv = document.getElementById('emailError');
-            const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
+            
+            
             if (email === "") {
                 errorDiv.textContent = "Email cannot be empty";
                 errorDiv.className = "error";
                 return false;
             }
-            if (!regex.test(email)) {
-                errorDiv.textContent = "Invalid email format";
+            
+           
+            const atIndex = email.indexOf('@');
+            if (atIndex === -1) {
+                errorDiv.textContent = "Invalid email format: missing @ symbol";
                 errorDiv.className = "error";
                 return false;
             }
+            
+          
+            if (atIndex === 0) {
+                errorDiv.textContent = "Invalid email format: missing username";
+                errorDiv.className = "error";
+                return false;
+            }
+            
+           
+            const domainPart = email.substring(atIndex + 1);
+            
+           
+            if (domainPart.length === 0) {
+                errorDiv.textContent = "Invalid email format: missing domain";
+                errorDiv.className = "error";
+                return false;
+            }
+            
+           
+            const dotIndex = domainPart.indexOf('.');
+            if (dotIndex === -1) {
+                errorDiv.textContent = "Invalid email format: missing domain extension";
+                errorDiv.className = "error";
+                return false;
+            }
+            
+         
+            if (dotIndex === 0 || dotIndex === domainPart.length - 1) {
+                errorDiv.textContent = "Invalid email format: invalid domain format";
+                errorDiv.className = "error";
+                return false;
+            }
+            
+            
+            if (email.indexOf(' ') !== -1) {
+                errorDiv.textContent = "Invalid email format: spaces not allowed";
+                errorDiv.className = "error";
+                return false;
+            }
+            
             errorDiv.textContent = "Valid Email!";
             errorDiv.className = "success";
             return true;
         }
         
-        // Hint button functionality
+        
         document.addEventListener('DOMContentLoaded', function() {
             const hintBtn = document.getElementById('emailHintBtn');
             const hintText = document.getElementById('emailHint');
             
-            // Show/hide on click
+            
             hintBtn.addEventListener('click', function(e) {
                 e.preventDefault();
                 hintText.style.display = hintText.style.display === 'block' ? 'none' : 'block';
             });
             
-            // Show on hover
+         
             hintBtn.addEventListener('mouseenter', function() {
                 hintText.style.display = 'block';
             });
             
-            // Hide when leaving the button and not hovering the hint text
+           
             hintBtn.addEventListener('mouseleave', function() {
                 setTimeout(function() {
                     if (!hintText.matches(':hover')) {

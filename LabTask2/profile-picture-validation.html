@@ -82,7 +82,7 @@
         </div>
     </div>
     <script>
-        // Update file status text when a file is selected
+       
         document.getElementById('picture').addEventListener('change', function() {
             const fileStatus = document.getElementById('fileStatus');
             if (this.files.length > 0) {
@@ -96,12 +96,31 @@
             const userId = document.getElementById('userId').value.trim();
             const picture = document.getElementById('picture').value;
             const errorDiv = document.getElementById('profilePicError');
-
-            if (userId === "" || isNaN(parseInt(userId)) || parseInt(userId) <= 0) {
+            
+          
+            if (userId === "") {
                 errorDiv.textContent = "User ID cannot be empty and must be a positive number";
                 errorDiv.className = "error";
                 return false;
             }
+            
+            
+            let isValidNumber = true;
+            for (let i = 0; i < userId.length; i++) {
+                const char = userId.charAt(i);
+                if (!(char >= '0' && char <= '9')) {
+                    isValidNumber = false;
+                    break;
+                }
+            }
+            
+            
+            if (!isValidNumber || userId.charAt(0) === '0' || userId === '0') {
+                errorDiv.textContent = "User ID must be a positive number";
+                errorDiv.className = "error";
+                return false;
+            }
+            
             if (picture === "") {
                 errorDiv.textContent = "Please select a profile picture";
                 errorDiv.className = "error";

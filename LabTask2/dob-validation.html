@@ -91,16 +91,53 @@
     </div>
     <script>
         function validateDOB() {
-            const day = parseInt(document.getElementById('day').value);
-            const month = parseInt(document.getElementById('month').value);
-            const year = parseInt(document.getElementById('year').value);
+            const dayStr = document.getElementById('day').value.trim();
+            const monthStr = document.getElementById('month').value.trim();
+            const yearStr = document.getElementById('year').value.trim();
             const errorDiv = document.getElementById('dobError');
-
-            if (isNaN(day) || isNaN(month) || isNaN(year)) {
+            
+         
+            if (dayStr === '' || monthStr === '' || yearStr === '') {
                 errorDiv.textContent = "All fields must be filled";
                 errorDiv.className = "error";
                 return false;
             }
+            
+          
+            let isValidDay = true, isValidMonth = true, isValidYear = true;
+            
+            for (let i = 0; i < dayStr.length; i++) {
+                if (!(dayStr.charAt(i) >= '0' && dayStr.charAt(i) <= '9')) {
+                    isValidDay = false;
+                    break;
+                }
+            }
+            
+            for (let i = 0; i < monthStr.length; i++) {
+                if (!(monthStr.charAt(i) >= '0' && monthStr.charAt(i) <= '9')) {
+                    isValidMonth = false;
+                    break;
+                }
+            }
+            
+            for (let i = 0; i < yearStr.length; i++) {
+                if (!(yearStr.charAt(i) >= '0' && yearStr.charAt(i) <= '9')) {
+                    isValidYear = false;
+                    break;
+                }
+            }
+            
+            if (!isValidDay || !isValidMonth || !isValidYear) {
+                errorDiv.textContent = "All fields must contain only numbers";
+                errorDiv.className = "error";
+                return false;
+            }
+            
+           
+            const day = parseInt(dayStr);
+            const month = parseInt(monthStr);
+            const year = parseInt(yearStr);
+            
             if (day < 1 || day > 31) {
                 errorDiv.textContent = "Day must be between 1 and 31";
                 errorDiv.className = "error";
